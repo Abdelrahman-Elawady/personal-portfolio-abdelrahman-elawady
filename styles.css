@@ -667,6 +667,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
   color: #555;
   padding: 20px;
   font-size: 14px;
