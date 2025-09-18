@@ -660,3 +660,11 @@ blockquote:before {
 .item8 {
   animation-delay: calc(30s / 8 * (8 - 8) * -1);
 }
+
+
+footer {
+  text-align: center;
+  color: #555;
+  padding: 20px;
+  font-size: 14px;
+}
