@@ -664,6 +664,9 @@ blockquote:before {
 
 footer {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #555;
   padding: 20px;
   font-size: 14px;
