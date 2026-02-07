@@ -8,44 +8,71 @@
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.css">
   <link rel="shortcut icon" href="portfolio.ico?" type="image/x-icon">
-
 </head>
 <body class="dark-mode">
 
   <!-- Navigation Bar -->
   <header>
     <nav>
-      <ul>
+      <ul class="nav-menu">
         <li><a href="#home">Home</a></li>
-        <li><a href="#my-skills">My skills</a></li>
-        <li><a href="#my-work">My Work</a></li>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#contact-me">Contact Me</a></li>
+        <li><a href="#my-skills">Skills</a></li>
+        <li class="work-dropdown">
+          <a href="#experience" class="work-toggle">Work</a>
+          <ul class="dropdown-menu">
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#projects">Projects</a></li>
+          </ul>
+        </li>
+        <li class="desktop-only"><a href="#experience">Experience</a></li>
+        <li class="desktop-only"><a href="#publications">Publications</a></li>
+        <li class="desktop-only"><a href="#projects">Projects</a></li>
+        <li><a href="#about-me">About</a></li>
+        <li><a href="#contact-me">Contact</a></li>
+        <li class="theme-toggle-wrapper">
+          <button id="theme-toggle" aria-label="Toggle theme">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </li>
       </ul>
     </nav>
   </header>
 
   <!-- Home Section -->
   <section id="home">
-    <div class="home-content">
+    <div class="home-content reveal">
       <div class="home-text">
         <h2 id="greet">Hi Everyone!</h2>
         <h1 id="big-heading">Who am I?</h1>
         <h3 id="name">I am Abdelrahman Elawady,</h3>
-        <h3 class="secondary">An Electrical Engineering student who's interested in electric and electronic circuits design & analysis, control systems, programming, and scientific research.</h3>
+        <h3 class="secondary">Electrical Engineering student and Published
+           Researcher interseted in IoT and Control Systems. I thrive on tackling projects 
+           that challenge my technical limits to solve complex, 
+           real-world problems.</h3>
         <button class="resume-btn"><a href="Abdelrahman_Elawady_Resume.pdf" download>My Resume &#x21A9;</a></button>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/abdelrahmanelawady" target="_blank">
-              <img src="images/linkedin.png" alt="github">
+          <a href="https://www.linkedin.com/in/abdelrahmanelawady" target="_blank" aria-label="LinkedIn">
+              <img src="images/linkedin.png" alt="LinkedIn">
           </a>
-          <a href="https://github.com/Abdelrahman-elawady" target="_blank">
-              <img src="images/github.png" alt="Linkedin">
+          <a href="https://github.com/Abdelrahman-elawady" target="_blank" aria-label="GitHub">
+              <img src="images/github.png" alt="GitHub">
           </a>
-          <a href="https://app.netlify.com/teams/abdalrahman666/sites" target="_blank">
-            <img src="images/netlify.png" alt="Linkedin">
-          </a>
-          <a href="https://scholar.google.com/citations?user=uYYdWLAAAAAJ&hl=en" target="_blank">
-            <img src="images/googlescholar.png" alt="Linkedin">
+          <a href="https://scholar.google.com/citations?user=uYYdWLAAAAAJ&hl=en" target="_blank" aria-label="Google Scholar">
+            <img src="images/googlescholar.png" alt="Google Scholar">
           </a>
         </div>
       </div>
@@ -55,9 +82,8 @@
     </div>
   </section>
 
-  <!-- My skills section -->
-
-  <section id="my-skills">
+  <!-- My Skills Section -->
+  <section id="my-skills" class="reveal">
     <h2>My Skills</h2>
     <div class="wrapper">
       <div class="itemLeft item1">AutoCAD</div>
@@ -91,244 +117,44 @@
     </div>
   </section>
   
-  <!-- My Work Section -->
-  <section id="my-work">
-    <h2>My Work</h2>
-
-    <div class="sub-section" id="projects">
-      <h3>Projects - Publications - etc...</h3>
-      <div class="slide-container swiper">
-        <div class="slide-content">
-          <div class="card-wrapper swiper-wrapper">
-
-                    <div class="card swiper-slide">
-                      <div class="image-content">
-                        <span class="overlay"></span>
-                        <div class="card-image">
-                            <img src="images/Plasma.jpg" alt="" class="card-img">
-                        </div>
-                      </div>
-                      <div class="card-content">
-                        <h2 class="name">Ionic Plasma Thruster</h2>
-                        <p class="description">This project focused on designing and implementing a fuel-less ionic propulsion system that generates thrust using high-voltage corona discharge and plasma wind, without any moving parts or fuel. The system utilized arc generator modules connected to ring ele...</p>
-                        <button class="button">
-                          <a href="https://youtube.com/shorts/ikm-FxP2AME" target="_blank">
-                            View More
-                          </a>
-                        </button>
-                      </div>
-                  </div>
-
-                  <div class="card swiper-slide">
-                      <div class="image-content">
-                        <span class="overlay"></span>
-                        <div class="card-image">
-                            <img src="images/advanced-panel.jpg" alt="" class="card-img">
-                        </div>
-                      </div>
-                      <div class="card-content">
-                        <h2 class="name">Advanced HUB75 LED Panel Display</h2>
-                        <p class="description">Similar to large Advertisement panels, this project involved designing and implementing an advanced digital display panel system using two chained P3 64x64 HUB75 LED panels, tailored for the Career Center at the University of Prince Mugrin. The syste...</p>
-                        <button class="button">
-                          <a href="https://youtu.be/1rmF5aVP64I?si=WJuq28qByPhLcTYP" target="_blank">
-                            View More
-                          </a>
-                        </button>
-                      </div>
-                  </div>
-
-                  <div class="card swiper-slide">
-                      <div class="image-content">
-                        <span class="overlay"></span>
-                        <div class="card-image">
-                            <img src="images/microplastics.png" alt="" class="card-img">
-                        </div>
-                      </div>
-                      <div class="card-content">
-                        <h2 class="name">Microplastics Research in Q1 Elsevier Journal</h2>
-                        <p class="description">As 1st author, I published this research with my co-authors in the Journal of Hazardous Materials: plastics (Elsevier). The study provides a comprehensive analysis of modern microplastics detection techniques, evaluating their profound ecological impac...</p>
-                        <button class="button">
-                          <a href="https://www.sciencedirect.com/science/article/pii/S3051060025000253?ref=pdf_download&fr=RR-2&rr=9af89b37baf5aeee" target="_blank">
-                            View More
-                          </a>
-                        </button>
-                      </div>
-                  </div>
-
-                  <div class="card swiper-slide">
-                    <div class="image-content">
-                      <span class="overlay"></span>
-                      <div class="card-image">
-                        <img src="images/robotic-arm.jpg" alt="" class="card-img">
-                      </div>
-                    </div>
-                    <div class="card-content">
-                      <h2 class="name">Wireless Controlled Mini Robotic Arm</h2>
-                      <p class="description">Worked collaboratively with a team to design and implement a Bluetooth-based robotic arm capable of precise movements for tasks such as picking and placing. This innovative project combined industrial design principles such as axis mov...</p>
-                      <button class="button">
-                        <a href="https://github.com/Abdelrahman-Elawady/robotic-prosthetic-hand" target="_blank">
-                          View More
-                        </a>
-                      </button>                      
-                    </div>
-                  </div>
-
-                  <div class="card swiper-slide">
-                    <div class="image-content">
-                      <span class="overlay"></span>
-                      <div class="card-image">
-                        <img src="images/Led-panel.jpg" alt="" class="card-img">                            </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Interactive WS2812 LED Panel</h2>
-                        <p class="description">Designed and built a wireless availability door sign system aimed at improving workplace communication. By integrating the ESP32 microcontroller with a 32x8 WS2812 LED matrix, the system provided real-time status updates via Bluetooth-low-energy (BLE) technology. In th...</p>
-                        <button class="button">
-                          <a href="https://pmqu-my.sharepoint.com/:w:/g/personal/4410215_upm_edu_sa/Eem-XId9vORIjvgiVCWHoZIBk8xfrh1X1z-77ts0Qc1d6g?e=qTPQZb" target="_blank">
-                            View More
-                          </a>
-                        </button> 
-                    </div>
-                  </div>
-
-                  <div class="card swiper-slide">
-                    <div class="image-content">
-                      <span class="overlay"></span>
-                      <div class="card-image">
-                        <img src="images/power-monitor.png" alt="" class="card-img">                            </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Python power monitoring system</h2>
-                        <p class="description">I supervised the design and implementation of a Python-based power monitoring system software that leverages object-oriented programming (OOP) principles. This innovative software was engineered to efficiently manage and analyze data from electrical devices whi...</p>
-                        <button class="button">
-                          <a href="https://github.com/Abdelrahman-Elawady/python-power-monitor-project" target="_blank">
-                            View More
-                          </a>
-                        </button> 
-                    </div>
-                  </div>
-
-                  <div class="card swiper-slide">
-                    <div class="image-content">
-                      <span class="overlay"></span>
-                      <div class="card-image">
-                        <img src="images/logic-counter.jpg" alt="" class="card-img">                            </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Logic Circuits counter system</h2>
-                        <p class="description">Collaborated with a team to develop an Arduino-based counter system that counts using a 74HC165 shift register and presents results in hexadecimal format on a 7-segment display. The project demonstrated our ability to combine hardware and softw...</p>
-                        <button class="button">
-                          <a href="https://pmqu-my.sharepoint.com/:w:/g/personal/4410215_upm_edu_sa/EcEkhvvTajJKrXGeOvx01qgBSbyrd4Y5CzzuqWyjbZ8Rfw?e=zqsV5k" target="_blank">
-                            View More
-                          </a>
-                        </button> 
-                    </div>
-                  </div>
-
-                  <div class="card swiper-slide">
-                    <div class="image-content">
-                      <span class="overlay"></span>
-                      <div class="card-image">
-                        <img src="images/matlab.png" alt="" class="card-img">                            </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">MATLAB signals analysis software</h2>
-                        <p class="description">Collaborated on the creation of a signal analysis software using MATLAB, which simulated noise addition and applied advanced filtering statistical algorithms to clean the signal. The software’s results were displayed graphically for user interpretation, highlighting my technical acume...</p>
-                        <button class="button">
-                          <a href="https://github.com/Abdelrahman-Elawady/matlab-Signals-processing-project" target="_blank">
-                            View More
-                          </a>
-                        </button> 
-                    </div>
-                  </div>
-
-                  <div class="card swiper-slide">
-                    <div class="image-content">
-                      <span class="overlay"></span>
-                      <div class="card-image">
-                        <img src="images/generator.jpg" alt="" class="card-img">                            </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Axial-flux Electric Generator</h2>
-                        <p class="description">Partnered with a colleague to design and assemble a low-cost DIY axial flux electric generator. With eight 250-turn coils and 32 magnets mounted on CD discs, we achieved a 3V output, showcasing our resourcefulness and ingenuity. This project earned us second place...</p>
-                        <button class="button" disabled>
-                          <a href="https://www.linkedin.com/in/abdelrahmanelawady/details/projects/" target="_blank">
-                            View More
-                          </a>
-                        </button> 
-                    </div>
-                  </div>
-
-                  <div class="card swiper-slide">
-                    <div class="image-content">
-                      <span class="overlay"></span>
-                      <div class="card-image">
-                        <img src="images/javascript-list.png" alt="" class="card-img">                            </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">JavaScript To-Do List App</h2>
-                        <p class="description">Created an interactive and feature-rich to-do list web application utilizing JavaScript. The app allowed users to manage tasks efficiently by storing data locally in the browser, and it offered functionalities such as due dates and task status trac...</p>
-                        <button class="button">
-                          <a href="https://vanilla-js-to-do-list-app.netlify.app/" target="_blank">
-                            View More
-                          </a>
-                        </button> 
-                    </div>
-                  </div>
-
-                  <div class="card swiper-slide">
-                    <div class="image-content">
-                      <span class="overlay"></span>
-                      <div class="card-image">
-                        <img src="images/rock-paper.png" alt="" class="card-img">                            </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Rock-paper-scissors game</h2>
-                        <p class="description">This is a Rock-Paper-Scissors game developed using JavaScript, HTML, and CSS. The project features an interactive user interface where players can select their choice, while the computer randomly generates its move. The game logic determines th...</p>
-                        <button class="button">
-                          <a href="https://javascript-rock-paper-scissors-game.netlify.app/" target="_blank">
-                            View More
-                          </a>
-                        </button> 
-                    </div>
-                  </div>
-
-                  <div class="card swiper-slide">
-                    <div class="image-content">
-                      <span class="overlay"></span>
-                      <div class="card-image">
-                        <img src="images/covid-map.png" alt="" class="card-img">                            </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Python Interactive COVID-19 Data Visualization Map</h2>
-                        <p class="description">Designed and developed an online interactive map to visualize COVID-19 statistics locally in Saudi-Arabia. Leveraging Python’s Folium library and HTML I-frames, the project provided users with insightful visualizations of pandemic...</p>
-                        <button class="button">
-                          <a href="https://covid19datavisualization.netlify.app/" target="_blank">
-                            View More
-                          </a>
-                        </button> 
-                    </div>
-                  </div>
-
-                  <div class="card swiper-slide">
-                    <div class="image-content">
-                      <span class="overlay"></span>
-                      <div class="card-image">
-                          <img src="images/AlUlaResearch.jpeg" alt="" class="card-img">
-                      </div>
-                    </div>
-                    <div class="card-content">
-                      <h2 class="name">AlUla publication in Q2 Springer journal</h2>
-                      <p class="description">This research paper I co-authored in, published in Q2 GeoJournal (Springer Nature), delves into the rich tapestry of AlUla’s historical landmarks, cultural heritage, natural resources, and evolving tourism landscape. The study offe...</p>
-                      <button class="button">
-                        <a href="https://link.springer.com/article/10.1007/s10708-025-11423-4" target="_blank">
-                          Read More
-                        </a>
-                      </button>
-                    </div>
-                </div>
-          </div>
+  <!-- Experience Section -->
+  <section id="experience" class="reveal">
+    <h2>Experience</h2>
+    <div class="slide-container">
+      <div class="slide-content swiper">
+        <div class="card-wrapper swiper-wrapper" id="experience-cards">
+          <!-- Cards will be dynamically loaded from data.json -->
         </div>
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Publications Section -->
+  <section id="publications" class="reveal">
+    <h2>Publications</h2>
+    <div class="slide-container">
+      <div class="slide-content swiper">
+        <div class="card-wrapper swiper-wrapper" id="publications-cards">
+          <!-- Cards will be dynamically loaded from data.json -->
+        </div>
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="reveal">
+    <h2>Projects</h2>
+    <div class="slide-container">
+      <div class="slide-content swiper">
+        <div class="card-wrapper swiper-wrapper" id="projects-cards">
+          <!-- Cards will be dynamically loaded from data.json -->
+        </div>
         <div class="swiper-button-next swiper-navBtn"></div>
         <div class="swiper-button-prev swiper-navBtn"></div>
         <div class="swiper-pagination"></div>
@@ -337,31 +163,20 @@
   </section>
 
   <!-- About Me Section -->
-  <section id="about-me">
+  <section id="about-me" class="reveal">
     <h2>About Me</h2>
     <blockquote>
-      <p id="first-p">
-        I am a passionate electrical engineering student who thrives on combining creativity and technical expertise in both academic
-         and professional contexts. My journey so far has revolved around exploring the intricacies of Electricity & magnetism magic, programming, 
-         and scientific research. Currently, I am pursuing my bachelor's in Electrical Engineering at the university of prince Mugrin (UPM) 
-         in Al madinah Saudi-Arabia. Having previously served as the leader of the Electrical Engineering (ExZistence) club, I gained invaluable 
-         experience in fostering innovation and creativity alongside my core technical studies.
+      <p id="first-p" class="typing-text" data-text="I am a passionate electrical engineering student who thrives on combining creativity and technical expertise in both academic and professional contexts. My journey so far has revolved around exploring the intricacies of Electricity & magnetism magic, programming, and scientific research. Currently, I am pursuing my bachelor's in Electrical Engineering at the university of prince Mugrin (UPM) in Al madinah Saudi-Arabia. Having previously served as the leader of the Electrical Engineering (ExZistence) club, I gained invaluable experience in fostering innovation and creativity alongside my core technical studies.">
       </p>
-      <p>
-        Beyond my classes, I recently completed an internship at Jabal Al Alam, where I specialized in Control Systems. My work focused on Building Management Systems (BMS) 
-        and low-current GRMS systems, including the optimization, commissioning, and troubleshooting of HVAC, DDCs, and MCCs over TCP/IP networks. This hands-on experience 
-        complements my academic achievements, which include multiple research publications in high-impact Q1 and Q2 journals. 
-        My ultimate goal is to achieve my maximum potential by contributing impactful projects and solutions in my field. Beyond 
-        engineering, I enjoy creative writing, reading books, listening to music, and watching movies, which fuel my imagination and broaden my horizons. 
+      <p class="typing-text" data-text="Beyond my classes, I recently completed an internship at Jabal Al Alam, where I specialized in Control Systems. My work focused on Building Management Systems (BMS) and low-current GRMS systems, including the optimization, commissioning, and troubleshooting of HVAC, DDCs, and MCCs over TCP/IP networks. This hands-on experience complements my academic achievements, which include multiple research publications in high-impact Q1 and Q2 journals. My ultimate goal is to achieve my maximum potential by contributing impactful projects and solutions in my field. Beyond engineering, I enjoy creative writing, reading books, listening to music, and watching movies, which fuel my imagination and broaden my horizons.">
       </p>
-      <p>
-        If you feel like we share a common ground, feel free to reach out to me on any of my links or email me below...
+      <p class="typing-text" data-text="If you feel like we share a common ground, feel free to reach out to me on any of my links or email me below...">
       </p>
     </blockquote>
   </section>
 
   <!-- Contact Me Section -->
-  <section id="contact-me">
+  <section id="contact-me" class="reveal">
     <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
       <div class="contact-left-title">
         <h2>Get in touch</h2>
@@ -377,15 +192,16 @@
       <img src="images/emails-black.png" alt="emails image">
     </div>
   </section>
+
   <footer>
-    <p>© 2025 Abdelrahman Elawady. All rights reserved.</p>
+    <p>© 2026 Abdelrahman Elawady. All rights reserved.</p>
     <p>This website was designed and developed by Abdelrahman Elawady.</p>
     <p>Curious how this site was built? Check out the code on GitHub:</p>
     <p>https://github.com/Abdelrahman-Elawady/personal-portfolio-abdelrahman-elawady</p>
   </footer>
 
-  <script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.js"></script>
   <script src="scripts.js"></script>
+  
 </body>
 </html>
