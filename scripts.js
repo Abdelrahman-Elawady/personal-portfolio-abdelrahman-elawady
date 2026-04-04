@@ -321,6 +321,8 @@ if ('IntersectionObserver' in window) {
 // INITIALIZE EVERYTHING ON PAGE LOAD
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
+  //for copyrights automatic date update
+  document.getElementById('current-year').textContent = new Date().getFullYear();
   // Load work data and initialize swipers
   loadWorkData();
   

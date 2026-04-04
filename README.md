@@ -50,14 +50,14 @@ portfolio/
 └── images/            # All images folder
 ```
 
-## 🚀 How to Use
+## 🚀 How I use it:
 
 ### 1. **Basic Setup**
-Simply open `index.html` in a web browser. All features work out of the box!
+I Simply open `index.html` in a web browser. All features work out of the box!
 
 ### 2. **Adding/Editing Work Items**
 
-Edit the `data.json` file to add or modify your work items:
+I Edit the `data.json` file to add or modify my work items:
 
 ```json
 {
@@ -80,7 +80,7 @@ Edit the `data.json` file to add or modify your work items:
 
 ### 3. **Customizing Colors**
 
-Colors are defined as CSS variables in `styles.css`. You can customize them:
+Colors are defined as CSS variables in `styles.css`. You can customize them for experimenting:
 
 ```css
 :root {
