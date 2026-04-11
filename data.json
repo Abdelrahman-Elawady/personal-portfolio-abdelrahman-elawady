@@ -132,5 +132,90 @@
       "date": "2021-06",
       "link": "https://covid19datavisualization.netlify.app/"
     }
-  ]
+  ],
+"certifications": {
+    "title": "Certifications",
+    "items": [
+      {
+        "title": "Certificate of Internship - Building Management Systems",
+        "image": "./certificates/Certificate of Internship - Building Management Systems.jpg"
+      },
+      {
+        "title": "Introduction to Artificial Intelligence",
+        "image": "./certificates/Introduction to Artificial Intelligence.jpg"
+      },
+      {
+        "title": "Developing Interpersonal Skills",
+        "image": "./certificates/Developing Interpersonal Skills.jpg"
+      },
+      {
+        "title": "A Comparison of AC and DC Power Distribution in the Data Center",
+        "image": "./certificates/A Comparison of AC and DC Power Distribution in the Data Center.png"
+      },
+      {
+        "title": "Active Energy Efficiency Using Speed Control",
+        "image": "./certificates/Active Energy Efficiency Using Speed Control.png"
+      },
+      {
+        "title": "Active Listening Enhancing Communication Skills",
+        "image": "./certificates/Active Listening Enhancing Communication Skills.jpg"
+      },
+      {
+        "title": "AI Essentials",
+        "image": "./certificates/AI Essentials.jpg"
+      },
+      {
+        "title": "Electrical Power Generation - An Industrial Outlook",
+        "image": "./certificates/Electrical Power Generation - An Industrial Outlook.jpg"
+      },
+      {
+        "title": "Emotional Intelligence in Leadership",
+        "image": "./certificates/Emotional Intelligence in Leadership.jpg"
+      },
+      {
+        "title": "Engineering Economy",
+        "image": "./certificates/Engineering Economy.png"
+      },
+      {
+        "title": "Engineering Management",
+        "image": "./certificates/Engineering Management.jpg"
+      },
+      {
+        "title": "Fundamental Skills in Engineering Design",
+        "image": "./certificates/Fundamental Skills in Engineering Design.jpg"
+      },
+      {
+        "title": "Generative AI Introduction and Applications",
+        "image": "./certificates/Generative AI Introduction and Applications.jpg"
+      },
+      {
+        "title": "Generative AI Prompt Engineering Basics",
+        "image": "./certificates/Generative AI Prompt Engineering Basics.jpg"
+      },
+      {
+        "title": "Intel AI Fundamentals",
+        "image": "./certificates/Intel AI Fundamentals.jpg"
+      },
+      {
+        "title": "Introduction to Networking",
+        "image": "./certificates/Introduction to Networking.jpg"
+      },
+      {
+        "title": "Introduction to OSHA Safety Standards and Compliance",
+        "image": "./certificates/Introduction to OSHA Safety Standards and Compliance.jpg"
+      },
+      {
+        "title": "Mastering KiCAD Open-Source PCB Design for Beginners",
+        "image": "./certificates/Mastering KiCAD Open-Source PCB Design for Beginners.jpg"
+      },
+      {
+        "title": "Python for Data Science, AI & Development",
+        "image": "./certificates/Python for Data Science, AI & Development.jpg"
+      },
+      {
+        "title": "The Intel AI Value",
+        "image": "./certificates/The Intel AI Value.jpg"
+      }
+    ]
+  }
 }

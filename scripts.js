@@ -167,6 +167,17 @@ async function loadWorkData() {
     console.error('Error loading work data:', error);
   }
 }
+async function loadCertifications() {
+  try {
+    const response = await fetch('data.json');
+    const data = await response.json();
+    if (data.certifications && data.certifications.items) {
+      initCertGallery(data.certifications.items);
+    }
+  } catch (err) {
+    console.error('Error loading certifications:', err);
+  }
+}
 
 function createCards(containerId, items) {
   const container = document.getElementById(containerId);
@@ -325,6 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('current-year').textContent = new Date().getFullYear();
   // Load work data and initialize swipers
   loadWorkData();
+  loadCertifications();
   
   // Initial reveal check
   reveal();
@@ -356,6 +368,169 @@ document.addEventListener('DOMContentLoaded', () => {
   updateActiveNav();
 });
 
+function initCertGallery(items) {
+  const track = document.getElementById('cert-track');
+  const titleDisplay = document.getElementById('cert-title-display');
+  const currentEl = document.getElementById('cert-current');
+  const totalEl = document.getElementById('cert-total');
+  const prevBtn = document.getElementById('cert-prev');
+  const nextBtn = document.getElementById('cert-next');
+
+  if (!track || !items || items.length === 0) return;
+
+  let current = 0;
+  const total = items.length;
+
+  totalEl.textContent = total;
+
+    // Lightbox setup
+  const lightbox = document.createElement('div');
+  lightbox.className = 'cert-lightbox';
+  const lightboxImg = document.createElement('img');
+  lightbox.appendChild(lightboxImg);
+  document.body.appendChild(lightbox);
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.add('open');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+  }
+
+  lightbox.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('mouseleave', closeLightbox);
+
+  // Build cert item elements
+  items.forEach((cert, i) => {
+    const el = document.createElement('div');
+    el.className = 'cert-item';
+    el.dataset.index = i;
+    const img = document.createElement('img');
+    img.src = cert.image;
+    img.alt = cert.title;
+    img.loading = 'lazy';
+    // Fallback if image missing
+    img.onerror = function () {
+      this.style.display = 'none';
+      el.style.background = 'var(--bg-card)';
+      el.style.display = 'flex';
+      el.style.alignItems = 'center';
+      el.style.justifyContent = 'center';
+      el.style.fontSize = '0.85rem';
+      el.style.color = 'var(--text-tertiary)';
+      el.style.padding = '10px';
+      el.style.textAlign = 'center';
+      el.textContent = cert.title;
+    };
+    el.appendChild(img);
+
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openLightbox(img.src, cert.title);
+    });
+
+    // Clicking a side card navigates to it
+    el.addEventListener('click', () => {
+      if (i !== current) {
+        current = i;
+        render();
+      }
+    });
+
+    track.appendChild(el);
+  });
+
+  const certItems = track.querySelectorAll('.cert-item');
+
+  function getLayout() {
+    // Responsive slot widths
+    const w = window.innerWidth;
+    if (w <= 500) return { slotW: 185, zStep: 80, opacityStep: 0.3 };
+    if (w <= 768) return { slotW: 215, zStep: 100, opacityStep: 0.3 };
+    return { slotW: 310, zStep: 140, opacityStep: 0.25 };
+  }
+
+  function render() {
+    const { slotW, zStep, opacityStep } = getLayout();
+
+    certItems.forEach((el, i) => {
+      const offset = i - current;
+      const absOffset = Math.abs(offset);
+
+      // Only show up to 2 cards on each side
+      const maxVisible = 2;
+
+      if (absOffset > maxVisible) {
+        el.style.opacity = '0';
+        el.style.pointerEvents = 'none';
+        el.style.zIndex = '0';
+        return;
+      }
+
+      const tx = offset * slotW;
+      const tz = -absOffset * zStep;
+      const rotY = offset * -18;
+      const scale = 1 - absOffset * 0.12;
+      const opacity = 1 - absOffset * opacityStep;
+
+      el.style.transform = `translateX(${tx}px) translateZ(${tz}px) rotateY(${rotY}deg) scale(${scale})`;
+      el.style.opacity = opacity;
+      el.style.zIndex = maxVisible + 1 - absOffset;
+      el.style.pointerEvents = absOffset === 0 ? 'auto' : 'auto';
+
+      el.classList.toggle('active', offset === 0);
+    });
+
+    // Update counter and title
+    currentEl.textContent = current + 1;
+    titleDisplay.textContent = items[current].title;
+
+    // Button states — loop behaviour: disable at edges
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (current > 0) { current--; render(); }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (current < total - 1) { current++; render(); }
+  });
+
+  // Keyboard support
+  document.addEventListener('keydown', (e) => {
+    const section = document.getElementById('certifications');
+    if (!section) return;
+    const rect = section.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!inView) return;
+    if (e.key === 'ArrowLeft' && current > 0) { current--; render(); }
+    if (e.key === 'ArrowRight' && current < total - 1) { current++; render(); }
+  });
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  track.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0 && current < total - 1) { current++; render(); }
+      if (diff < 0 && current > 0) { current--; render(); }
+    }
+  }, { passive: true });
+
+  // Re-render on resize (layout breakpoints change)
+  window.addEventListener('resize', render);
+
+  // Initial render
+  render();
+}
 
 // ============================================
 // Console Message :)
