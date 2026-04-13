@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ionic Plasma Thruster — Abdelrahman Elawady</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="shortcut icon" href="../portfolio.ico" type="image/x-icon">
+  <style>
+    /* Project page specific styles */
+    .project-page {
+      max-width: 860px;
+      margin: 120px auto 80px;
+      padding: 0 30px;
+    }
+
+    .project-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+      transition: gap 0.2s ease;
+    }
+
+    .project-back:hover {
+      gap: 14px;
+      color: var(--accent-hover);
+    }
+
+    .project-hero {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tag {
+      background: var(--bg-secondary);
+      color: var(--accent-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 50px;
+      padding: 5px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .project-title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-tertiary);
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .project-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 26px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .project-link-btn.primary {
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      color: white;
+      border: none;
+    }
+
+    .project-link-btn.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px var(--shadow-medium);
+      color: white;
+    }
+
+    .project-link-btn.secondary {
+      background: transparent;
+      color: var(--accent-primary);
+      border: 2px solid var(--accent-primary);
+    }
+
+    .project-link-btn.secondary:hover {
+      background: var(--accent-primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .project-divider {
+      border: none;
+      border-top: 1px solid var(--border-color);
+      margin: 2.5rem 0;
+    }
+
+    .project-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .project-section p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+    }
+
+    .project-section ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-section ul li {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-img {
+      width: 100%;
+      border-radius: 14px;
+      margin: 1.5rem 0 2rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .project-img-caption {
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-tertiary);
+      margin-top: -1.5rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    .project-video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      margin: 1.5rem 0 2rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      .project-page {
+        margin-top: 100px;
+        padding: 0 20px;
+      }
+      .project-title {
+        font-size: 1.9rem;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      .project-title {
+        font-size: 1.5rem;
+      }
+      .project-subtitle {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body class="dark-mode">
+
+  <!-- Nav (simplified back-link version) -->
+  <header>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#contact-me">Contact</a></li>
+        <li class="theme-toggle-wrapper">
+          <button id="theme-toggle" aria-label="Toggle theme">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="project-page">
+
+    <!-- Back link -->
+    <a href="../index.html#projects" class="project-back">&#8592; Back to Projects</a>
+
+    <!-- Hero image -->
+    <img src="../images/Plasma.jpg" alt="Ionic Plasma Thruster" class="project-hero">
+
+    <!-- Tags -->
+    <div class="project-tags">
+      <span class="project-tag">High Voltage</span>
+      <span class="project-tag">Plasma</span>
+      <span class="project-tag">Propulsion</span>
+      <span class="project-tag">May 2025</span>
+    </div>
+
+    <!-- Title & subtitle -->
+    <h1 class="project-title">Ionic Plasma Thruster</h1>
+    <p class="project-subtitle">Fuel-less Propulsion System - using space technology to sail a boat!</p>
+
+    <!-- Action links -->
+    <div class="project-links">
+      <a href="https://youtube.com/shorts/ikm-FxP2AME" target="_blank" class="project-link-btn primary">
+        &#9654; Watch Demo
+      </a>
+      <!-- Add more buttons as needed, e.g.: -->
+      <!-- <a href="https://github.com/..." target="_blank" class="project-link-btn secondary">GitHub</a> -->
+    </div>
+
+    <hr class="project-divider">
+
+    <!-- Section 1: Overview -->
+    <div class="project-section">
+      <h2>Overview</h2>
+      <h3>The Vision</h3>
+      <p>
+        Traditional marine vessels rely on mechanical propellers that 
+        inevitably introduce hydrodynamic drag, underwater acoustic pollution,
+        and ongoing mechanical wear. This project reimagines marine propulsion 
+        by eliminating moving parts entirely. By leveraging electrohydrodynamic
+        principles, my team and I engineered a completely solid-state propulsion
+        system that generates thrust through atmospheric ionic wind, 
+        successfully demonstrating its viability as an alternative to 
+        conventional motorized aquatic platforms. Other possible future applications for
+         ionic engines is the use in aircrafts and avaition since it could replace the noisy and fuel-hungry 
+         jet engines. However, so far it is mostly under research due to the little thrust is provides.
+      </p>
+      <p>If you are interested about how recent research was able to increase the thrust of ionic engines:</p>
+      <a href="https://doi.org/10.1063/5.0005814" target="_blank" class="project-link-btn primary">&#x1F517; Jet propulsion by microwave air plasma in the atmosphere featured </a>
+      <h3>The Technology</h3>
+      <p>
+        At the core of this propulsion system is a custom-built high-voltage 
+        generator. Utilizing a Zero Voltage Switching (ZVS) driver powered by a 
+        compact 12V lithium-ion battery, the circuit steps up the input to exceed
+        40kV. This intense electrical field arcs across specially engineered 
+        circular electrodes. We specifically optimized this circular geometry 
+        to maximize the generation of plasma, effectively ionizing the surrounding
+        air and creating a sustained molecular drift. This ionic wind serves as 
+        the primary thrust mechanism to propel the vessel forward.
+      </p>
+      <h3>The Challenge and Execution</h3>
+      <p>
+        One of the most significant engineering hurdle was miniaturizing and stabilizing a 
+        40kV power system for a mobile, aquatic environment. To solve this, we 
+        developed a modular architecture for the high-voltage arc generators. We 
+        successfully integrated three of these independent engine modules onto a 
+        custom 3D-printed boat hull. Balancing the high-voltage requirements of the 
+        ZVS driver with the strict payload weight constraints of the power supply 
+        demanded rigorous electrical optimization. The result was a fully functional,
+        self-contained prototype that successfully sailed using strictly aerodynamic 
+        plasma thrust. More hurdles included gathering cost effective materials, so we innovated:
+        we used aluminium cloth hangers to create the ring-shaped electrodes for the thruster
+        and soda cans for the sharp edged electrode that would concentrate the electric field necessary to
+        generate 40kv! Even a capacitor inside a home electrical fan was used for the high frequency film cap inside 
+        the ZVS driver circuitry.
+      </p>
+    </div>
+
+    <hr class="project-divider">
+
+    <!-- Section 2: with image example -->
+    <div class="project-section">
+      <h2>How It Works</h2>
+      <p>
+        Generating thrust without moving parts requires orchestrating a sequence
+         of complex electrical and physical phenomena. The system operates in 
+         three distinct phases: highly efficient power amplification, atmospheric
+          ionization, and momentum transfer.
+      </p>
+      <h3>1. The Power Plant: Zero Voltage Switching</h3>
+      <p>The heartbeat of the thruster is the Zero Voltage Switching driver. 
+        To generate plasma, the initial 12V DC supply from the lithium-ion
+        battery must be transformed into tens of thousands of volts. A
+        standard switching circuit would waste massive amounts of energy
+        as heat due to switching losses. The ZVS circuit solves this by 
+        utilizing a self-oscillating LC resonant tank. The system meticulously
+        times the switching of its MOSFETs, ensuring they only toggle states
+        when the voltage across them is exactly zero. Because power 
+        dissipation is the product of voltage and current (P = VI),
+        switching when the voltage is zero results in near-zero power 
+        loss. This extreme efficiency allows the compact module to handle
+        high power demands without thermal failure, outputting a 
+        high-frequency alternating current to the step-up transformer.</p>
+      <img src="../images/zvs.jpg" alt="System diagram" class="project-img">
+      <h3>2. Atmospheric Ionization: Corona Discharge</h3>
+      <p>The alternating current from the ZVS driver is fed into a high-voltage 
+        transformer, stepping the potential up to exceed 40,000 volts. This 
+        voltage is applied across our engineered circular electrodes. The 
+        magnitude of the electric field E generated between the electrodes 
+        depends on the voltage V and the gap distance d, described 
+        fundamentally as:</p>
+      <p>
+        <math display="block">
+        <mi>E</mi>
+        <mo>=</mo>
+        <mfrac>
+            <mi>V</mi>
+            <mi>d</mi>
+        </mfrac>
+        </math>
+      </p>
+      <p>Because we utilize specifically designed circular electrodes, 
+        the electric field becomes highly concentrated at the curved 
+        edges. When this localized electric field surpasses the dielectric 
+        breakdown strength of air (roughly 30 kV/cm), it violently strips 
+        electrons from nearby nitrogen and oxygen molecules. This localized 
+        ionization is called corona discharge. It creates the visible, glowing 
+        purple plasma that acts as the source of our propulsion system.</p>
+        <p>This plasma phenomenon is observed at high voltage power lines as 
+            seen in the following image and
+            is considered a power loss that engineers try to minimize in 
+            transmission high voltage lines:
+        </p>
+      <img src="../images/corona_discharge.jpg" alt="Corona discharge" class="project-img">
+      <h3>3. Electrohydrodynamic Thrust: The Ionic Wind</h3>
+      <p>Creating plasma alone does not move a boat. The actual propulsion 
+        relies on electrohydrodynamics. The corona discharge creates a dense 
+        cloud of positive ions near the emitting electrode. These ions are 
+        immediately propelled away by the intense electric field toward the 
+        grounded cathode. As these charged particles accelerate across the gap, 
+        they continuously collide with neutral, uncharged air molecules. 
+        Through millions of microscopic collisions, the ions transfer their 
+        kinetic energy and momentum to the neutral air. This bulk movement of 
+        air creates a sustained ionic wind. The total aerodynamic thrust F 
+        generated by this process can be approximated using the relationship 
+        between the corona current I, the gap distance d, and the mobility 
+        of the ions mu:</p>
+        <p>
+            <math display="block" xmlns="http://w3.org">
+            <mi>F</mi>
+            <mo>≈</mo>
+            <mfrac>
+                <mrow>
+                <mi>I</mi>
+                <mo>&#x2062;</mo> <!-- Invisible multiplication operator -->
+                <mi>d</mi>
+                </mrow>
+                <mi>μ</mi>
+            </mfrac>
+            </math>
+        </p>
+        <p>
+            This ionic draft is exhausted out the back of the engine modules, creating the necessary forward thrust to sail the marine vessel entirely silently.
+        </p>
+
+      <!-- Image with caption -->
+       <div class="tenor-gif-embed" data-postid="13983206" data-share-method="host" data-aspect-ratio="1.7931" data-width="100%"><a href="https://tenor.com/view/electric-wind-ionic-wind-electrostatic-wind-gif-13983206">Electric Wind Ionic Wind GIF</a>from <a href="https://tenor.com/search/electric+wind-gifs">Electric Wind GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+      <p class="project-img-caption">Ionic Wind</p>
+
+      <ul>
+        <li>Near-Zero Switching Loss: The ZVS architecture enables the use of lightweight, portable power supplies by eliminating the thermal waste typically associated with high-voltage step-up conversions.</li>
+        <li>Optimized Electrode Geometry: The circular electrode design maximizes the localized electric field gradient, ensuring a continuous and robust corona discharge rather than sporadic, inefficient sparking.</li>
+        <li>Scalable EHD Momentum Transfer: By arranging the engines in a modular array on the vessel, the resulting electrohydrodynamic thrust is multiplied, proving the viability of solid-state propulsion in a real-world hydrodynamic environment.</li>
+      </ul>
+    </div>
+
+    <h3>This is what the project finally looked like:</h3>
+      <img src="../images/zvs-circuit-final.png" alt="final zvs driver circuit" class="project-img">
+    <h3>And this is the boat:</h3>
+      <img src="../images/ionic-boat.jpg" alt="ionic engine boat" class="project-img">
+    <p>The thruster nozzle rings mounted on a kitchen food scale for testing and measuring its thrust:</p>
+    <img src="../images/mounted-thruster.jpg" alt="measuing the thrust" class="project-img">
+    <h3>A shocker 💔</h3>
+    <p>A limitation of Ionic engines is that they generate such little thrust compared to cyogenic (combustion fuel) engines, Jet engines or any other engines
+        which is why so far they have only been implemented in outer space applications where there is no gravity or air resistance,
+        and it's were a space craft could work for such a long period of time on very little propellant (usually Argon gas since the ionic engine has no atmosphere to ionize in outer space) with solar energy only.
+        but who knows maybe in the future someone could develop a much stronger plasma thruster capable of replacing all cyogenic engines and pushing us into outer bounderies of space!
+    </p>  
+    <p>Here is were we were left with 0 thrust:</p>      
+    <img src="../images/measuring-thrust.jpg" alt="System diagram" class="project-img">
+
+
+    <hr class="project-divider">
+
+    <!-- Section 3: Video embed example -->
+    <div class="project-section">
+      <h2>Demo Video</h2>
+      <p>Watch the system in action where we have also mounted our custom ZVS electrodes on an actuator to control its distance which allows us to control the thrust:</p>
+
+      <iframe
+        class="project-video"
+        src="https://www.youtube.com/embed/R_BU-4-dfgY?si=1H5OohHua87UMtfi"
+        title="Project Demo"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+
+      <!-- For a direct video file instead, use this: -->
+      <!--
+      <video class="project-video" controls>
+        <source src="../videos/demo.mp4" type="video/mp4">
+      </video>
+      -->
+    </div>
+
+    <hr class="project-divider">
+
+    <!-- Final thoughts / conclusion -->
+    <div class="project-section">
+      <h2>Outcome & Reflections</h2>
+      <p>
+        The project culminated in a highly successful demonstration of ionic propulsion. Our custom 3D-printed vessel, 
+        powered exclusively by three solid-state ZVS engine modules, achieved 
+        sustained forward motion across a water testbed. By completely eliminating
+        mechanical propellers, we validated the concept of a silent, 
+        zero-wake, and solid-state aquatic thruster powered by a standard 
+        lithium-ion battery.
+    </p>
+    <p>Personally, if I were to do this again, I would probably invest in much stronger electrical materials with higher metrics to be able to generate
+        a much stronger thrust and be able to get readings out of it, but all and all, we are proud of what we created and we learned so much from this experience...
+    </p>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© <span id="current-year"></span> Abdelrahman Elawady. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Theme toggle (same logic as main site)
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'light') body.classList.remove('dark-mode');
+    else body.classList.add('dark-mode');
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

@@ -14,7 +14,7 @@
       "subtitle": "ExZistence president",
       "description": "As the club lead, I oversaw operations and fostered a collaborative environment by coordinating with university departments and mentoring members in technical...",
       "date": "2025-02",
-      "link": "https://www.linkedin.com/in/abdelrahmanelawady/details/experience/"
+      "link": "https://exzistence-club.github.io/our-links/"
     }
   ],
   "publications": [
@@ -50,15 +50,16 @@
       "subtitle": "Fuel-less Propulsion System",
       "description": "This project focused on designing and implementing a fuel-less ionic propulsion system that generates thrust using high-voltage corona discharge and plasma wind, without any moving parts or fuel. The system utilized arc generator modules connected to ring electrodes to produce directional thrust through ionized air particles.",
       "date": "2025-05",
-      "link": "https://youtube.com/shorts/ikm-FxP2AME"
+      "link": "https://youtube.com/shorts/ikm-FxP2AME",
+      "page": "projects/ionic-plasma-thruster.html"
     },
     {
       "image": "images/advanced-panel.jpg",
       "title": "Smart HUB75 LED Panel Display",
-      "subtitle": "Digital Display System",
+      "subtitle": "Digital IoT Display System with bluetooth",
       "description": "Similar to large Advertisement panels, this project involved designing and implementing an advanced digital display panel system using two chained P3 64x64 HUB75 LED panels, tailored for the Career Center at the University of Prince Mugrin. The system featured real-time content updates, smooth animations, and network connectivity for remote management.",
       "date": "2024-11",
-      "link": "https://youtu.be/1rmF5aVP64I?si=WJuq28qByPhLcTYP"
+      "link": "https://abdelrahman-elawady.github.io/our-work/"
     },
     {
       "image": "images/generator.jpg",
@@ -82,6 +83,14 @@
       "subtitle": "ESP32 Wireless Office Panel",
       "description": "Designed and built a wireless availability door sign system aimed at improving workplace communication. By integrating the ESP32 microcontroller with a 32x8 WS2812 LED matrix, the system provided real-time status updates via Bluetooth-low-energy (BLE) technology. In this project, we learned a great deal of information about",
       "date": "2024-11",
+      "link": "https://www.linkedin.com/in/abdelrahmanelawady/details/projects/"
+    },
+    {
+      "image": "images/timer555pwmcontroller.jpg",
+      "title": "DC Motor Speed Controller using 555 Timer Astable Multivibrator",
+      "subtitle": "PWM controller",
+      "description": "In this project, I collaborated with Ibrahim Albarbari and Ghazi Alhartani to design and simulate a high efficiency DC motor speed controller using a 555 Timer IC for an Electronics II course. The core of the system relies on Pulse Width Modulation (PWM) to regulate the average power delivered to the motor by varying the duty cycl",
+      "date": "2025-12",
       "link": "https://www.linkedin.com/in/abdelrahmanelawady/details/projects/"
     },
     {

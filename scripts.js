@@ -208,11 +208,12 @@ function createCards(containerId, items) {
         ${item.subtitle ? `<p class="subtitle">${item.subtitle}</p>` : ''}
         <p class="card-date">${formattedDate}</p>
         <p class="description">${item.description}</p>
-        <button class="button">
-          <a href="${item.link}" target="_blank" rel="noopener noreferrer">
-            View More
-          </a>
-        </button>
+        <a href="${item.page ? item.page : item.link}" 
+          class="button" 
+          ${item.page ? '' : 'target="_blank" rel="noopener noreferrer"'}
+          style="display:inline-block; text-decoration:none;">
+          View More
+        </a>
       </div>
     `;
     
